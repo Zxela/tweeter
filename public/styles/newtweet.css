@@ -58,14 +58,14 @@
 }
 
 .tweetContainer .userName {
+    border-style: solid;
     border-color: black;
     border-width: 2px;
 }
 .tweetContainer .userID {
+    border-style: solid;
     border-color: black;
     border-width: 2px;
-    align-self: right;
-    float: right;
 }
 .tweetContainer footer {
     border-top-style: solid;
