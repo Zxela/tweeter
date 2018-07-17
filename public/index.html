@@ -16,6 +16,8 @@
 
   <!--Navbar CSS-->
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <!--tweetCSS-->
+  <link rel="stylesheet" href="/styles/newtweet.css" type="text/css" />
 
   <!-- External JS -->
   <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -36,7 +38,8 @@
   <main class="container">
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
-      <form action="/tweets/" method:"post">
+      <div></div>
+      <form action="/tweets" method="POST">
         <textarea name="text" placeholder="What are you humming about?"></textarea>
         <input type="submit" value="Tweet">
         <span class="counter">140</span>
