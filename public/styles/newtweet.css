@@ -1,6 +1,16 @@
+.container {
+    border-style: groove;
+    background-color: #EEEEEE;
+    margin-top: 90px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
 main h2 {
+    margin-top: 0;
     margin-bottom: 0;
-    float: left
+    float: top;
+    font-size: 200%;
 }
 main div {
     margin-top: 0;
@@ -9,9 +19,15 @@ main div {
     margin-bottom: 20px;
 }
 main textarea {
-    padding-left: 2em;
+    width: 100%;    
+    padding: 5px 5px;
     
 }
-main span {
-    margin-left: 310px;
+main .counter {
+    float: right;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 90%;
+    padding-top: 8px;
+    padding-right: 4px;
 }
