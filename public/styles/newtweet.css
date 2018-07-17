@@ -2,14 +2,14 @@
     border-style: groove;
     background-color: #EEEEEE;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .new-tweet h2 {
     margin-top: 0;
     margin-bottom: 0;
     float: top;
-    font-size: 200%;
+    font-size: 150%;
 }
 .new-tweet div {
     margin-top: 0;
@@ -20,7 +20,6 @@
 .new-tweet textarea {
     width: 100%;    
     padding: 5px 5px;
-    
 }
 .new-tweet .counter {
     float: right;
@@ -29,4 +28,47 @@
     font-size: 90%;
     padding-top: 8px;
     padding-right: 4px;
+}
+.new-tweet .overcount { /*class for changing font red when over 140 char */
+    color: red;
+}
+
+/* tweet container */
+.tweetContainer {
+    border-style: groove;
+    padding: 0px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.tweetContainer article header {
+    background-color:#EEEEEE;
+    height: 50px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;   
+}
+
+.tweetContainer .userPic {
+    align-self: left;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+
+.tweetContainer .userName {
+    border-color: black;
+    border-width: 2px;
+}
+.tweetContainer .userID {
+    border-color: black;
+    border-width: 2px;
+    align-self: right;
+    float: right;
+}
+.tweetContainer footer {
+    border-top-style: solid;
+    border-top-color: #EEEEEE;
+    border-top-width: 1px;
 }
