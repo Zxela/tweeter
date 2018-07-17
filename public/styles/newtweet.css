@@ -3,13 +3,12 @@ main h2 {
     float: left
 }
 main div {
-    margin-top 0;
+    margin-top: 0;
     padding: 1px;
     background-color: black;
     margin-bottom: 20px;
 }
 main textarea {
-    padding;
     padding-left: 2em;
     
 }
