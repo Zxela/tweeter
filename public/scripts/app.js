@@ -1,77 +1,39 @@
 $(document).ready(function() {
-const tweetData = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": {
-          "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-          "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-          "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-        },
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": {
-          "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-          "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-          "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-        },
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    },
-    {
-      "user": {
-        "name": "Johann von Goethe",
-        "avatars": {
-          "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-          "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-          "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-        },
-        "handle": "@johann49"
-      },
-      "content": {
-        "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-      },
-      "created_at": 1461113796368
-    }
-  ];
-  
-function renderTweets(arrOfTweets, cb) {
+  //render tweets
+  function renderTweets(arrOfTweets) {
     for (let i = 0; i < arrOfTweets.length; i++) {
-        cb(arrOfTweets[i]);
+      createTweetElement(arrOfTweets[i]);
     }
-}
-
-function createTweetElement(tweets) {
-    let tweetText = tweets.content.text; 
-    let user_id = tweets.user.handle;
-    let userName = tweets.user.name;
-    let avatar = tweets.user.avatars['small']; 
+  }
+  function createTweetElement(tweets) {
     let d = new Date();
     let tDay = d.getTime();
     let postTime = Math.floor((tDay - tweets.created_at) / 86400000); //num of ms in a day
-    
     $(".tweetContainer").append(`<article>
         <header>
-          <img src="${avatar}" class="userPic">
-          <div class="userName">${userName}</div>
-          <div class="userID">${user_id}</div>
+          <img src="${tweets.user.avatars["small"]}" class="userPic">
+          <div class="userName">${tweets.user.name}</div>
+          <div class="userID">${tweets.user.handle}</div>
         </header>
-        <p>${tweetText}</p>
+        <p>${tweets.content.text}</p>
         <footer>
           ${postTime} days ago
         </footer>
-      </article>`)
-}
-renderTweets(tweetData, createTweetElement);
+      </article>`);
+  }
+  let $tweetSub = $("#postTweets");
+  $tweetSub.on("submit", function(ev) {
+    ev.preventDefault();
+    console.log("new tweet submitted");
+    let $urlData = $(this).serialize();
+    console.log($urlData)
+    $.post("/tweets", $urlData);
+  });
+  function loadTweets () {
+    $.getJSON("/tweets", function(data){
+      renderTweets(data);
+    })
+  }
+  loadTweets();
+  
 });
