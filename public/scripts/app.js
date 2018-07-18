@@ -20,13 +20,18 @@ $(document).ready(function() {
     let tDay = d.getTime();
     let postTime = Math.floor((tDay - tweets.created_at) / 86400000); //num of ms in a day
     //prepending to get newest post first
+    function escape(str) {
+      var div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
     $(".tweetContainer").prepend(`<article> 
         <header>
           <img src="${tweets.user.avatars["small"]}" class="userPic">
           <div class="userName">${tweets.user.name}</div>
           <div class="userID">${tweets.user.handle}</div>
         </header>
-        <p>${tweets.content.text}</p>
+        <p>${escape(tweets.content.text)}</p>
         <footer>
           ${postTime} days ago
         </footer>
