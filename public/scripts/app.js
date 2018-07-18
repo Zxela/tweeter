@@ -57,7 +57,9 @@ function createTweetElement(tweets) {
     let user_id = tweets.user.handle;
     let userName = tweets.user.name;
     let avatar = tweets.user.avatars['small']; 
-    let postTime = Date(tweets.created_at * 1000);
+    let d = new Date();
+    let tDay = d.getTime();
+    let postTime = Math.floor((tDay - tweets.created_at) / 86400000); //num of ms in a day
     
     $(".tweetContainer").append(`<article>
         <header>
@@ -67,7 +69,7 @@ function createTweetElement(tweets) {
         </header>
         <p>${tweetText}</p>
         <footer>
-          ${postTime}
+          ${postTime} days ago
         </footer>
       </article>`)
 }

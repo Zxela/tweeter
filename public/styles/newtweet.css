@@ -68,7 +68,7 @@
 
 .tweetContainer .userName {
     float: left;
-    width: 40%;
+    width: auto;
     height: 70%;
     font-size: 150%;
     font-weight: bold;
@@ -78,7 +78,7 @@
 }
 .tweetContainer .userID {
     float: right;
-    width: 20%;
+    width: auto;
     font-style: italic;
     color: grey;
 }
