@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  const $tweetSub = $("#postTweets"); //jquery submit
   const loadTweets = function () {
     $.getJSON("/tweets", function(data){
       renderTweets(data);
@@ -43,6 +42,7 @@ $(document).ready(function() {
         </footer>
       </article>`);
   }
+  const $tweetSub = $("#postTweets"); //jquery submit button "posttweet"
   $tweetSub.on("submit", function(ev) {
     ev.preventDefault();
     let str = $('#postTweets').find('textarea').val()
@@ -58,8 +58,15 @@ $(document).ready(function() {
     }
     
   });
+// event listener for button
+  const $compose = $("#composeTweet");
+  $compose.on('click', function() {
+    $(".new-tweet").slideToggle();
+    $(".new-tweet textarea").focus();
+  })
   loadTweets();
 
+  
 
 
 // end of onDocumentReady

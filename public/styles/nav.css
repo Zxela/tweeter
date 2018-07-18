@@ -26,3 +26,9 @@
     float: left; 
 }
 
+#nav-bar #composeTweet {
+    float: right;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
