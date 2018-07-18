@@ -24,14 +24,25 @@ $(document).ready(function() {
   let $tweetSub = $("#postTweets");
   $tweetSub.on("submit", function(ev) {
     ev.preventDefault();
-    console.log("new tweet submitted");
+    let str = $('#postTweets').find('textarea').val()
+    console.log("new tweet", '"' + str + '"', "submitted"); //logs tweet submitted with text
     let $urlData = $(this).serialize();
-    console.log($urlData)
-    $.post("/tweets", $urlData);
+    if (str === null || str === ""){
+      alert("Null or empty string")
+    }else if (str.length > 0 && str.length < 141) { //if text is greater than 0 or less than 141
+      $.post("/tweets", $urlData);
+      return;
+    } else {
+      alert("Too few or too many characters!")
+    }
+    
   });
-  function loadTweets () {
+  let loadTweets = function () {
     $.getJSON("/tweets", function(data){
-      renderTweets(data);
+      renderTweets(data)
+    })
+    .fail(function(){
+      alert("failed to load tweets from JSON")
     })
   }
   loadTweets();
