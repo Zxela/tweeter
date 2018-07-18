@@ -34,7 +34,7 @@
 }
 
 /* tweet container */
-.tweetContainer {
+.tweetContainer article{
     border-style: groove;
     padding: 0px;
     border-radius: 5px;
@@ -42,10 +42,9 @@
     opacity: 0.75;
 }
 
-.tweetContainer:hover {
+.tweetContainer article:hover {
     opacity: 1;
 }
-
 .tweetContainer article header {
     background-color:#EEEEEE;
     height: 50px;
