@@ -33,7 +33,13 @@ $(document).ready(function() {
         </header>
         <p>${escape(tweets.content.text)}</p>
         <footer>
+          <span class='time'>
           ${postTime} days ago
+          </span>
+          <span class='icons'>
+          <i class="fas fa-flag"></i>
+          <i class="fas fa-retweet"></i>
+          <i class="fas fa-heart"></i>
         </footer>
       </article>`);
   }

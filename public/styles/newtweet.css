@@ -52,10 +52,18 @@
     margin-top: 10px;
     opacity: 0.75;
 }
-
+.tweetContainer article .icons {
+    float: right;
+    display: none;
+} 
+.tweetContainer article:hover .icons{
+    display: inline;
+}
 .tweetContainer article:hover {
     opacity: 1;
 }
+
+
 .tweetContainer article header {
     background-color:#EEEEEE;
     height: 50px;
