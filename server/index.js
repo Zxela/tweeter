@@ -10,7 +10,7 @@ const app           = express();
 const MongoClient = require("mongodb").MongoClient;
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 
-MongoClient.connect(MONGODB_URI, (err, client) => {
+MongoClient.connect(MONGODB_URI, (err, db) => {
   if (err) {
     console.error(`Failed to connect: ${MONGODB_URI}`);
     throw err;
@@ -22,7 +22,7 @@ MongoClient.connect(MONGODB_URI, (err, client) => {
   app.use(express.static("public"));
 
 
-  const db = client.db("tweeter")
+  // const db = client.db("tweeter")
   const DataHelpers = require("./lib/data-helpers.js")(db);
 
 // The `tweets-routes` module works similarly: we pass it the `DataHelpers` object
