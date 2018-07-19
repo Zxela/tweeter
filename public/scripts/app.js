@@ -1,17 +1,21 @@
 $(document).ready(function() {
+  
   const loadTweets = function () {
     $.getJSON("/tweets", function(data){
       renderTweets(data);
     })
     .fail(function(){
-      alert("failed to load tweets from JSON");
+      $("#errorMsg").text("failed to load tweets").fadeIn();
+      $(".new-tweet textarea").on('focus', function(){
+        $("#errorMsg").fadeOut();
+      });
     })
   }
 //render tweets start
   function renderTweets(arrOfTweets) {
-      $('.tweetContainer').empty();
-      for (let i = 0; i < arrOfTweets.length; i++) {
-      createTweetElement(arrOfTweets[i]);
+    $('.tweetContainer').empty(); //empty tweets on site
+    for (let i = 0; i < arrOfTweets.length; i++) {
+    createTweetElement(arrOfTweets[i]);
     }
   }
   function createTweetElement(tweets) {
@@ -42,21 +46,27 @@ $(document).ready(function() {
         </footer>
       </article>`);
   }
-  const $tweetSub = $("#postTweets"); //jquery submit button "posttweet"
-  $tweetSub.on("submit", function(ev) {
+  //jquery submit button "posttweet"
+  $("#postTweets").on("submit", function(ev) {
     ev.preventDefault();
     let str = $('#postTweets').find('textarea').val()
     let $urlData = $(this).serialize();
     if (str === null || str === ""){
-      alert("Please write something first!")
+      $("#errorMsg").text("Please write something first!").fadeIn();
+      $(".new-tweet textarea").on('focus', function(){
+        $("#errorMsg").fadeOut();
+      });
     }else if (str.length > 0 && str.length < 141) { //if text is greater than 0 or less than 141
       console.log("new tweet", '"' + str + '"', "submitted"); //logs tweet submitted with text
-      $.post("/tweets", $urlData);
-      loadTweets();
+      $.post("/tweets", $urlData, function(){
+        loadTweets(); //load tweets from updated json
+      }); //post to list /tweets.json
     } else {
-      alert("Please keep character count below 140!");
+      $("#errorMsg").text("Too many characters!").fadeIn();
+      $(".new-tweet textarea").on('focus', function(){
+        $("#errorMsg").fadeOut();
+      })
     }
-    
   });
 // event listener for button
   const $compose = $("#composeTweet");
@@ -64,10 +74,11 @@ $(document).ready(function() {
     $(".new-tweet").slideToggle();
     $(".new-tweet textarea").focus();
   })
-  loadTweets();
-
   
-
+  
+  
+ //First load of tweets 
+  loadTweets();
 
 // end of onDocumentReady
 });
