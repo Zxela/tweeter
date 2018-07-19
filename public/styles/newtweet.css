@@ -3,6 +3,7 @@
   background-color: #eeeeee;
   padding: 10px;
   border-radius: 5px;
+  display: none;
 }
 
 .new-tweet h2 {

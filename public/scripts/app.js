@@ -74,11 +74,7 @@ $(document).ready(function() {
     $(".new-tweet").slideToggle();
     $(".new-tweet textarea").focus();
   })
-  
-  
-  
  //First load of tweets 
   loadTweets();
-
 // end of onDocumentReady
 });
