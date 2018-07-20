@@ -57,10 +57,10 @@ $(document).ready(function() {
         $("#errorMsg").fadeOut();
       });
     }else if (str.length > 0 && str.length < 141) { //if text is greater than 0 or less than 141
-      console.log("new tweet", '"' + str + '"', "submitted"); //logs tweet submitted with text
       $.post("/tweets", $urlData, function(){
         loadTweets(); //load tweets from updated json
-      }); //post to list /tweets.json
+        $(".new-tweet textarea").val('');
+      }); 
     } else {
       $("#errorMsg").text("Too many characters!").fadeIn();
       $(".new-tweet textarea").on('focus', function(){
