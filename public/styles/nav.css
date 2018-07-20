@@ -1,37 +1,40 @@
-
-
 #nav-bar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: #00AC87;
+    background-color: #00ac87;
     height: 80px;
     color: #e8fdff;
     padding-left: 2em;
-    padding-right: 2em; 
-    z-index:    1;
+    padding-right: 2em;
+    /* appear on top */
+    z-index: 1;
 }
 
 #nav-bar .logo {
-      height: 80px;
-      width: 80px;
-      float: left;
-      margin-right: 10px;
+    height: 80px;
+    width: 80px;
+    float: left;
+    margin-right: 10px;
 }
 
 #nav-bar .header {
     font-size: 200%;
     line-height: 250%;
-    float: left; 
+    float: left;
 }
+
+/*compose button*/
 
 #nav-bar #composeTweet {
     float: right;
     padding: 15px;
     margin-top: 10px;
     border-radius: 5px;
+    border-color: black;
 }
+
 #nav-bar #composeTweet:hover {
     box-shadow: 0px 0px 10px #4a82c5;
 }

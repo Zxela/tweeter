@@ -1,119 +1,139 @@
 .new-tweet {
-  border-style: groove;
-  background-color: #eeeeee;
-  padding: 10px;
-  border-radius: 5px;
-  display: none;
+	border-style: groove;
+	background-color: #eeeeee;
+	padding: 10px;
+	border-radius: 5px;
+	display: none;
 }
 
 .new-tweet h2 {
-  margin-top: 0;
-  margin-bottom: 0;
-  float: top;
-  font-size: 150%;
+	margin-top: 0;
+	margin-bottom: 0;
+	float: top;
+	font-size: 150%;
 }
+
 .new-tweet div {
-  margin-top: 0;
-  padding: 1px;
-  background-color: black;
-  margin-bottom: 20px;
+	margin-top: 0;
+	padding: 1px;
+	background-color: black;
+	margin-bottom: 20px;
 }
+
 .new-tweet textarea {
-  width: 100%;
-  padding: 5px 5px;
+	width: 100%;
+	padding: 5px 5px;
+	resize: none;
 }
+
 /* highlight text area and input button */
+
 .new-tweet textarea:focus,
 .new-tweet textarea:hover {
-  box-shadow: 0px 0px 10px #4a82c5;
+	box-shadow: 0px 0px 10px #4a82c5;
 }
+
 .new-tweet textarea:focus {
-  outline: none;
+	outline: none;
 }
 
 /* Submit Button */
-.new-tweet input{
-  width: auto;
+
+.new-tweet input {
+	width: auto;
 }
+
 .new-tweet input:hover {
-  box-shadow: 0px 0px 10px #4a82c5;
+	box-shadow: 0px 0px 10px #4a82c5;
 }
 
 /* Tweet Counter */
+
 .new-tweet .counter {
-  float: right;
-  font-style: italic;
-  font-weight: 500;
-  font-size: 90%;
-  padding-top: 8px;
-  padding-right: 4px;
+	float: right;
+	font-style: italic;
+	font-weight: 500;
+	font-size: 90%;
+	padding-top: 8px;
+	padding-right: 4px;
 }
+
 .new-tweet .overcount {
-  /*class for changing font red when over 140 char */
-  color: red;
+	/*class for changing font red when over 140 char */
+	color: red;
 }
+
 .new-tweet #errorMsg {
-  display: none;
-  color: red;
+	display: none;
+	color: red;
 }
 
 /* Tweet Container (newslist) */
+
 .tweetContainer article {
-  border-style: groove;
-  padding: 0px;
-  border-radius: 5px;
-  margin-top: 10px;
-  opacity: 0.75;
+	border-style: groove;
+	padding: 0px;
+	border-radius: 5px;
+	margin-top: 10px;
+	opacity: 0.75;
 }
+
 .tweetContainer article .icons {
-  float: right;
-  display: none;
+	float: right;
+	display: none;
+	color: #36cabb;
 }
+
 .tweetContainer article:hover .icons {
-  display: inline;
+	display: inline;
 }
+
 .tweetContainer article:hover {
-  opacity: 1;
+	opacity: 1;
 }
 
 .tweetContainer article header {
-  background-color: #eeeeee;
-  height: 50px;
-  padding: 5px;
-  position: relative;
+	background-color: #eeeeee;
+	height: 50px;
+	padding: 5px;
+	position: relative;
 }
 
 .tweetContainer article p {
-  padding: 8px;
-  font-size: 120%;
+	padding: 8px;
+	font-size: 120%;
 }
+
 .tweetContainer article footer {
-  padding: 5px;
+	padding: 5px;
 }
+
 .tweetContainer .userPic {
-  float: left;
-  height: 90%;
-  width: auto;
-  margin: 2px;
+	float: left;
+	height: 90%;
+	width: auto;
+	margin: 2px;
 }
 
 .tweetContainer .userName {
-  float: left;
-  width: auto;
-  height: 70%;
-  font-size: 150%;
-  font-weight: bold;
-  color: #1f4952;
-  padding-left: 5px;
+	float: left;
+	width: auto;
+	height: 70%;
+	font-size: 150%;
+	font-weight: bold;
+	color: #1f4952;
+	padding-left: 5px;
 }
+
 .tweetContainer .userID {
-  float: right;
-  width: auto;
-  font-style: italic;
-  color: grey;
+	float: right;
+	width: auto;
+	color: grey;
+	font-size: 80%;
 }
+
 .tweetContainer footer {
-  border-top-style: solid;
-  border-top-color: #eeeeee;
-  border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #eeeeee;
+	border-top-width: 1px;
 }
