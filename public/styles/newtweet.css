@@ -45,6 +45,7 @@
 
 .new-tweet input:hover {
 	box-shadow: 0px 0px 10px #4a82c5;
+	cursor: pointer;
 }
 
 /* Tweet Counter */
