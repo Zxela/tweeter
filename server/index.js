@@ -20,9 +20,6 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(express.static("public"));
-
-
-  // const db = client.db("tweeter")
   const DataHelpers = require("./lib/data-helpers.js")(db);
 
 // The `tweets-routes` module works similarly: we pass it the `DataHelpers` object
