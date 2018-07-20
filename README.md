@@ -18,6 +18,6 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
-!["Landing Page"]
-!["Compose new tweet"]
-!["Example error message"]
+!["Landing Page"](https://github.com/Zxela/tweeter/blob/master/docs/landing.png)
+!["Compose new tweet"](https://github.com/Zxela/tweeter/blob/master/docs/compose.png)
+!["Example error message"](https://github.com/Zxela/tweeter/blob/master/docs/error.png)
