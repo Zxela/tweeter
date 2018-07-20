@@ -58,9 +58,9 @@ $(document).ready(function() {
       });
     }else if (str.length > 0 && str.length < 141) { //if text is greater than 0 or less than 141
       $.post("/tweets", $urlData, function(){
-        loadTweets(); //load tweets from updated json
         $(".new-tweet textarea").val('');
         $(".new-tweet .counter").text('140');
+        loadTweets(); //load tweets from updated json
       }); 
     } else {
       $("#errorMsg").text("Too many characters!").fadeIn();
