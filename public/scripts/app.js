@@ -60,6 +60,7 @@ $(document).ready(function() {
       $.post("/tweets", $urlData, function(){
         loadTweets(); //load tweets from updated json
         $(".new-tweet textarea").val('');
+        $(".new-tweet .counter").text('140');
       }); 
     } else {
       $("#errorMsg").text("Too many characters!").fadeIn();
