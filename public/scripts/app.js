@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	/*run on document ready */
 	const loadTweets = function() {
 		$.getJSON("/tweets", function(data) {
 			renderTweets(data);
@@ -11,7 +12,7 @@ $(document).ready(function() {
 			});
 		});
 	};
-	//render tweets start
+	/* render tweets start */
 	function renderTweets(arrOfTweets) {
 		$(".tweetContainer").empty(); //empty tweets on site
 		for (let i = 0; i < arrOfTweets.length; i++) {
@@ -22,13 +23,13 @@ $(document).ready(function() {
 		let d = new Date();
 		let tDay = d.getTime();
 		let postTime = Math.floor((tDay - tweets.created_at) / 86400000); //num of ms in a day
-		//prepending to get newest post first
+		/* escape function to prevent user from injecting js, html */
 		function escape(str) {
-			//escape function to prevent user from injecting js, html.
 			var div = document.createElement("div");
 			div.appendChild(document.createTextNode(str));
 			return div.innerHTML;
 		}
+		/* prepending to get newest post first */
 		$(".tweetContainer").prepend(`<article> 
         <header>
           <img src="${tweets.user.avatars["small"]}" class="userPic">
@@ -49,7 +50,6 @@ $(document).ready(function() {
 	}
 	//jquery submit button "posttweet"
 	$("#postTweets").on("submit", function(ev) {
-		//on pressing submit button
 		ev.preventDefault(); //prevent default event from occuring
 		let str = $("#postTweets")
 			.find("textarea")

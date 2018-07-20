@@ -1,7 +1,6 @@
 $(document).ready(function() {
 	$(".new-tweet textarea").on("input", function() {
-		//Counter
-		let $len = $(this).val().length; // assign varibale to number of characters typed
+		let $len = $(this).val().length; //number of characters typed
 		let count = 140 - $len;
 		let $counter = $(this).siblings(".counter");
 		$counter.text(count);
@@ -10,5 +9,6 @@ $(document).ready(function() {
 		} else {
 			$counter.removeClass("overcount");
 		}
+		``;
 	});
 });
