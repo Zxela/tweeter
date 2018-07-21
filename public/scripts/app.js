@@ -43,11 +43,13 @@ $(document).ready(function() {
           </span>
           <span class='icons'>
           <i class="fas fa-flag"></i>
-          <i class="fas fa-retweet"></i>
-          <i class="fas fa-heart"></i>
+					<i class="fas fa-retweet"></i>
+					<i class="far fa-heart"></i>
         </footer>
       </article>`);
 	}
+	/* <i class="fas fa-heart"></i>  icon for heart when liked...*/
+
 	//jquery submit button "posttweet"
 	$("#postTweets").on("submit", function(ev) {
 		ev.preventDefault(); //prevent default event from occuring

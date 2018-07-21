@@ -20,6 +20,7 @@ MongoClient.connect(
 
 		// We have a connection to the "tweeter" db, starting here.
 		console.log(`Connected to mongodb: ${MONGODB_URI}`);
+
 		app.use(bodyParser.urlencoded({ extended: true }));
 		app.use(express.static("public"));
 		const DataHelpers = require("./lib/data-helpers.js")(db);
