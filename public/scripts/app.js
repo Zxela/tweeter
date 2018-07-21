@@ -30,7 +30,7 @@ $(document).ready(function() {
 			return div.innerHTML;
 		}
 		/* prepending to get newest post first */
-		$(".tweetContainer").prepend(`<article> 
+		$(".tweetContainer").prepend(`<article id="${tweets.id}"> 
         <header>
           <img src="${tweets.user.avatars["small"]}" class="userPic">
           <div class="userName">${tweets.user.name}</div>
@@ -44,7 +44,7 @@ $(document).ready(function() {
           <span class='icons'>
           <i class="fas fa-flag"></i>
 					<i class="fas fa-retweet"></i>
-					<i class="far fa-heart"></i>
+					<i class="far fa-heart"><span class="likeCount"></span></i>
         </footer>
       </article>`);
 	}
@@ -81,12 +81,14 @@ $(document).ready(function() {
 			});
 		}
 	});
-	// event listener for button
+	// event listener for "Compose" button
 	const $compose = $("#composeTweet");
 	$compose.on("click", function() {
 		$(".new-tweet").slideToggle();
 		$(".new-tweet textarea").focus();
 	});
+	//event listener for likes
+	// const $like = $(#)
 	//First load of tweets
 	loadTweets();
 	// end of onDocumentReady
