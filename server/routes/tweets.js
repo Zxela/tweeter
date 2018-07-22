@@ -42,25 +42,27 @@ module.exports = function(DataHelpers) {
 		});
 	});
 
-	// tweetsRoutes.put("/:tweetid/like", function(req, res) {
-	// 	if (!liketweet) {
-	// 		Datahelpers.addLike(tweetID, err => {
-	// 			if (err) {
-	// 				throw err;
-	// 			} else {
-	// 				// add like;
-	// 			}
-	// 		});
-	// 	} else {
-	// 		Datahelpers.removeLike(tweetID, err => {
-	// 			if (err) {
-	// 				throw err;
-	// 			} else {
-	// 				// remove like;
-	// 			}
-	// 		});
-	// 	}
-	// });
+	tweetsRoutes.post("/:tweetID/addLike", function(req, res) {
+		Datahelpers.addLike(tweetID, err => {
+			if (err) {
+				throw err;
+			} else {
+				let tweetID = req.params.tweetID;
+				console.log(req.params.tweetID, "add like");
+			}
+		});
+	});
+
+	tweetsRoutes.post("/:tweetID/removeLike", function(req, res) {
+		Datahelpers.removeLike(tweetID, err => {
+			if (err) {
+				throw err;
+			} else {
+				let tweetID = req.params.tweetID;
+				console.log(req.params.tweetID, "remove like");
+			}
+		});
+	});
 
 	return tweetsRoutes;
 };

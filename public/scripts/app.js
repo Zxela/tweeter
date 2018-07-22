@@ -4,6 +4,24 @@ $(document).ready(function() {
 		$(".tweetContainer").empty(); //empty tweets on site
 		$.getJSON("/tweets", function(data) {
 			renderTweets(data);
+			//LIKE EVENT LISTENER
+			const $like = $(".likes");
+			$like.on("click", function() {
+				console.log("clicked", $(this).children("i"));
+				$heart = $(this).children("i");
+				if ($heart.hasClass("liked")) {
+					$heart.removeClass("liked");
+					// $.post(`/${tweets._id}/removeLike`, function() {
+					// 	console.log("remove CB successful"); //placeholder for remove class
+					// });
+				} else {
+					$heart.addClass("liked");
+					// $.post(`/${tweets._id}/addLike`, function() {
+					// 	console.log("add CB successful"); //placeholder for addclass
+					// });
+				}
+			});
+			//END OF LIKE LISTENER
 		}).fail(function() {
 			$("#errorMsg")
 				.text("failed to load tweets")
@@ -52,16 +70,6 @@ $(document).ready(function() {
       </article>`);
 
 		//event listener for likes - nested to ensure attached to each tweet
-		const $like = $(".likes");
-		$like.on("click", function() {
-			console.log("clicked", $(this).children("i"));
-			$heart = $(this).children("i");
-			if ($heart.hasClass("liked")) {
-				$heart.removeClass("liked");
-			} else {
-				$heart.addClass("liked");
-			}
-		});
 	}
 	/* <i class="fas fa-heart"></i>  icon for heart when liked...*/
 
@@ -105,5 +113,6 @@ $(document).ready(function() {
 
 	//First load of tweets
 	loadTweets();
+
 	// end of onDocumentReady
 });
