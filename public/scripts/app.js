@@ -4,24 +4,6 @@ $(document).ready(function() {
 		$(".tweetContainer").empty(); //empty tweets on site
 		$.getJSON("/tweets", function(data) {
 			renderTweets(data);
-			//LIKE EVENT LISTENER
-			const $like = $(".likes");
-			$like.on("click", function() {
-				console.log("clicked", $(this).children("i"));
-				$heart = $(this).children("i");
-				if ($heart.hasClass("liked")) {
-					$heart.removeClass("liked");
-					// $.post(`/${tweets._id}/removeLike`, function() {
-					// 	console.log("remove CB successful"); //placeholder for remove class
-					// });
-				} else {
-					$heart.addClass("liked");
-					// $.post(`/${tweets._id}/addLike`, function() {
-					// 	console.log("add CB successful"); //placeholder for addclass
-					// });
-				}
-			});
-			//END OF LIKE LISTENER
 		}).fail(function() {
 			$("#errorMsg")
 				.text("failed to load tweets")
@@ -36,6 +18,45 @@ $(document).ready(function() {
 		for (let i = 0; i < arrOfTweets.length; i++) {
 			createTweetElement(arrOfTweets[i]);
 		}
+		//LIKE EVENT LISTENER
+		const $like = $(".likes");
+		$like.on("click", function() {
+			console.log("clicked", $(this).children("i"));
+			$heart = $(this).children("i");
+			if ($heart.hasClass("liked")) {
+				$heart.removeClass("liked");
+				console.log(
+					$(this)
+						.closest("article")
+						.get()
+				);
+				$.post(
+					`/tweets/${$(this)
+						.closest("article")
+						.get()}/removeLike`,
+					function() {
+						console.log("remove CB successful"); //placeholder for remove class
+					}
+				);
+			} else {
+				$heart.addClass("liked");
+				console.log(
+					$(this)
+						.closest("article")
+						.get()
+				);
+
+				$.post(
+					`/tweets/${$(this)
+						.closest("article")
+						.get()}/addLike`,
+					function() {
+						console.log("add CB successful"); //placeholder for addclass
+					}
+				);
+			}
+		});
+		//END OF LIKE LISTENER
 	}
 	function createTweetElement(tweets) {
 		let d = new Date();

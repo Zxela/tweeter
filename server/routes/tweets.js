@@ -43,25 +43,15 @@ module.exports = function(DataHelpers) {
 	});
 
 	tweetsRoutes.post("/:tweetID/addLike", function(req, res) {
-		Datahelpers.addLike(tweetID, err => {
-			if (err) {
-				throw err;
-			} else {
-				let tweetID = req.params.tweetID;
-				console.log(req.params.tweetID, "add like");
-			}
-		});
+		let tweetID = req.params.tweetID;
+		console.log(req.params.tweetID, "add like");
+		res.status(201).send();
 	});
 
 	tweetsRoutes.post("/:tweetID/removeLike", function(req, res) {
-		Datahelpers.removeLike(tweetID, err => {
-			if (err) {
-				throw err;
-			} else {
-				let tweetID = req.params.tweetID;
-				console.log(req.params.tweetID, "remove like");
-			}
-		});
+		let tweetID = req.params.tweetID;
+		console.log(req.params.tweetID, "remove like");
+		res.status(201).send();
 	});
 
 	return tweetsRoutes;

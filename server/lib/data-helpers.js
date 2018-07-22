@@ -19,17 +19,17 @@ module.exports = function makeDataHelpers(db) {
 					}
 					callback(null, tweets);
 				});
-		},
-		// Add like
-		addLike: function(tweetID, callback) {
-			db.collection("tweets").insertOne(tweetID);
-			callback(null, true);
-		},
-
-		// Remove like
-		removeLike: function(tweetID, callback) {
-			db.collection("tweets").insertOne(tweetID);
-			callback(null, true);
 		}
+		// // Add like
+		// addLike: function(tweetID, callback) {
+		// 	db.collection("tweets").find(tweetID);
+		// 	callback(null, true);
+		// },
+
+		// // Remove like
+		// removeLike: function(tweetID, callback) {
+		// 	db.collection("tweets").insertOne(tweetID);
+		// 	callback(null, true);
+		// }
 	};
 };
