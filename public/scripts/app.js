@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	/*run on document ready */
 	const loadTweets = function() {
+		$(".tweetContainer").empty(); //empty tweets on site
 		$.getJSON("/tweets", function(data) {
 			renderTweets(data);
 		}).fail(function() {
@@ -14,7 +15,6 @@ $(document).ready(function() {
 	};
 	/* render tweets start */
 	function renderTweets(arrOfTweets) {
-		$(".tweetContainer").empty(); //empty tweets on site
 		for (let i = 0; i < arrOfTweets.length; i++) {
 			createTweetElement(arrOfTweets[i]);
 		}
@@ -30,7 +30,7 @@ $(document).ready(function() {
 			return div.innerHTML;
 		}
 		/* prepending to get newest post first */
-		$(".tweetContainer").prepend(`<article id="${tweets.id}"> 
+		$(".tweetContainer").prepend(`<article id="${tweets._id}"> 
         <header>
           <img src="${tweets.user.avatars["small"]}" class="userPic">
           <div class="userName">${tweets.user.name}</div>
@@ -42,11 +42,26 @@ $(document).ready(function() {
           ${postTime} days ago
           </span>
           <span class='icons'>
-          <i class="fas fa-flag"></i>
-					<i class="fas fa-retweet"></i>
-					<i class="far fa-heart"><span class="likeCount"></span></i>
+          	<i class="fas fa-flag"></i>
+						<i class="fas fa-retweet"></i>
+						<span class="likes">
+							<i class="fas fa-heart"><span class"likecount"></span></i>
+						</span>
+					</span>
         </footer>
       </article>`);
+
+		//event listener for likes - nested to ensure attached to each tweet
+		const $like = $(".likes");
+		$like.on("click", function() {
+			console.log("clicked", $(this).children("i"));
+			$heart = $(this).children("i");
+			if ($heart.hasClass("liked")) {
+				$heart.removeClass("liked");
+			} else {
+				$heart.addClass("liked");
+			}
+		});
 	}
 	/* <i class="fas fa-heart"></i>  icon for heart when liked...*/
 
@@ -87,8 +102,7 @@ $(document).ready(function() {
 		$(".new-tweet").slideToggle();
 		$(".new-tweet textarea").focus();
 	});
-	//event listener for likes
-	// const $like = $(#)
+
 	//First load of tweets
 	loadTweets();
 	// end of onDocumentReady
