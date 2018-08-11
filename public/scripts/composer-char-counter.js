@@ -4,7 +4,7 @@ $(document).ready(function() {
 		let count = 140 - $len;
 		let $counter = $(this).siblings(".counter");
 		$counter.text(count);
-		if (count <= 0) {
+		if (count < 0) {
 			$counter.addClass("overcount");
 		} else {
 			$counter.removeClass("overcount");
